@@ -1,14 +1,50 @@
 import React from 'react';
 import { Button } from 'antd';
+import { connect } from 'react-redux';
+import { FETCH_LOGIN } from '@src/actions/ActionTypes'
 import '@src/css/app.less';
 
-function App() {
-  return (
-    <div className="App">
-      <h2 className="title">React Start</h2>
-      <Button type="primary">Hello React</Button>
-    </div>
-  );
+class App extends React.Component {
+
+  componentDidMount() {
+    if(!this.props.user.isLogin){
+      this.props.login({
+        url: '/login',
+        method: 'post',
+        data: {
+          userName: 'admin',
+          password: '123456'
+        }
+      }).then(res=>{
+        console.log(res)
+      })
+    }
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <h2 className="title">React Start</h2>
+        <Button type="primary">Hello React</Button>
+      </div>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    user: state.user
+  }
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    login: requestConfig => {
+      return new Promise((resolve, reject) => {
+        dispatch({ type: FETCH_LOGIN, actionParams: { requestConfig, resolve, reject } });
+      })
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
