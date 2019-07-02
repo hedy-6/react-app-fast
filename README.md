@@ -4,6 +4,7 @@
 
 1. antd及antd按需加载；
 2. less,less-loader;
+3. webpack 配置目录别名
 
 ## 项目实现过程
 
@@ -91,5 +92,15 @@ const lessModuleRegex = /\.module\.less$/;
     },
     'less-loader'
   ),
+},
+```
+
+### webpack 配置目录别名
+
+```
+// webpack.config.js
+alias: {
+    "@": path.resolve("src"),
+    ......
 },
 ```
