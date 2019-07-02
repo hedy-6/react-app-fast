@@ -2,8 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { FETCH_LOGIN } from '@src/actions/ActionTypes';
 import { Route } from "react-router-dom";
-import Home from '@src/pages/Home'
-import About from '@src/pages/About'
+import MyLoadable from '@src/router/routeLoadable'
 import '@src/css/app.less';
 
 class App extends React.Component {
@@ -26,8 +25,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-         <Route exact path="/" component={Home}/>
-         <Route exact path="/about" component={About}/>
+        <Route exact path="/" component={MyLoadable({ loader: () => import('@src/pages/Home') })} />
+        <Route exact path="/about" component={MyLoadable({ loader: () => import('@src/pages/About') })} />
       </div>
     );
   }
