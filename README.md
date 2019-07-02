@@ -354,3 +354,26 @@ export default (config = {}) => {
     })
 }
 ```
+
+### react-router-dom
+
+```
+yarn add react-router-dom
+
+// src/index.js
+import { BrowserRouter as Router } from "react-router-dom";
+ReactDOM.render(
+    <Provider store={store}>
+        <Router>
+            <App />
+        </Router>
+    </Provider>, document.getElementById('root'));
+
+// src/App.js
+import { Route } from "react-router-dom";
+...
+<div className="App">
+  <Route exact path="/" component={Home}/>
+  <Route exact path="/about" component={About}/>
+</div>
+```

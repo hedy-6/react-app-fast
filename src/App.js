@@ -1,13 +1,15 @@
 import React from 'react';
-import { Button } from 'antd';
 import { connect } from 'react-redux';
-import { FETCH_LOGIN } from '@src/actions/ActionTypes'
+import { FETCH_LOGIN } from '@src/actions/ActionTypes';
+import { Route } from "react-router-dom";
+import Home from '@src/pages/Home'
+import About from '@src/pages/About'
 import '@src/css/app.less';
 
 class App extends React.Component {
 
   componentDidMount() {
-    if(!this.props.user.isLogin){
+    if (!this.props.user.isLogin) {
       this.props.login({
         url: '/login',
         method: 'post',
@@ -15,7 +17,7 @@ class App extends React.Component {
           userName: 'admin',
           password: '123456'
         }
-      }).then(res=>{
+      }).then(res => {
         console.log(res)
       })
     }
@@ -24,8 +26,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h2 className="title">React Start</h2>
-        <Button type="primary">Hello React</Button>
+         <Route exact path="/" component={Home}/>
+         <Route exact path="/about" component={About}/>
       </div>
     );
   }
