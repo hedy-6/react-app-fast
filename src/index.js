@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
-import rootReducer from './reducers';
-import saga from './sagas';
+import rootReducer from '@src/store/reducers';
+import saga from '@src/store/sagas';
 import { BrowserRouter as Router } from "react-router-dom";
 import App from './App';
 import * as serviceWorker from './serviceWorker';

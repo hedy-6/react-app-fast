@@ -2,7 +2,7 @@ import {
     LOGIN_SUCCESS,
     LOGIN_FAIL,
     LOGINOUT
-} from '@src/actions/ActionTypes';
+} from '@src/store/actions/ActionTypes';
 
 export default (state = { isLogin: false, userInfo: {} }, action) => {
     switch (action.type) {

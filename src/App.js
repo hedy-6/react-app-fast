@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { FETCH_LOGIN } from '@src/actions/ActionTypes';
+import { FETCH_LOGIN } from '@src/store/actions/ActionTypes';
 import { Route } from "react-router-dom";
 import MyLoadable from '@src/router/routeLoadable'
 import '@src/css/app.less';

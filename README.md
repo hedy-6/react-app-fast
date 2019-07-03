@@ -7,6 +7,7 @@
 3. webpack 配置目录别名;
 4. 状态管理redux、react-redux、redux-saga,axios请求（包含js-cookie）;
 5. 路由react-router-dom;
+6. 按需加载react-loadable;
 
 ## 项目实现过程
 

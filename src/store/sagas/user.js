@@ -6,7 +6,7 @@ import {
     LOGIN_FAIL,
     FETCH_LOGINOUT,
     LOGINOUT,
-} from '@src/actions/ActionTypes';
+} from '@src/store/actions/ActionTypes';
 
 // 登录
 function* fetchLogin({ actionParams = {} }) {
